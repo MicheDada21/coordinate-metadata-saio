@@ -1,0 +1,10 @@
+{
+  "name": "metadata-general-audit",
+  "description": "Applica la bozza di widget-modifica-metadati oppure parte da sola, controlla pagina e sito per i motori di ricerca e di risposta AI e implementa i suggerimenti scelti dall'utente. Usa quando l'utente chiede un audit SEO, GEO o AEO o di applicare una bozza di metadati.",
+  "author": {
+    "name": "Tiziano Boccaccini"
+  },
+  "homepage": "https://www.cryptohelvetia.com/ch-labs/prompt-library/skills/metadata-general-audit",
+  "repository": "https://github.com/MicheDada21/metadata-general-audit",
+  "license": "MIT"
+}
