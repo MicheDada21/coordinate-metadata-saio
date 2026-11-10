@@ -1,6 +1,6 @@
 {
   "name": "coordinate-metadata-saio",
-  "description": "Applica la bozza di customize-metadata-widget oppure parte da sola, controlla pagina e sito per i motori di ricerca e di risposta AI e implementa i suggerimenti scelti dall'utente. Usa quando l'utente chiede un audit SEO, GEO o AEO o di applicare una bozza di metadati.",
+  "description": "Checks a page and its site for search and AI answer engines, then implements the suggestions the user picks, starting alone or from the widget's draft. Use when running an SEO, GEO or AEO audit.",
   "author": {
     "name": "Tiziano Boccaccini"
   },
