@@ -1,6 +1,6 @@
 ---
-name: metadata-general-audit
-description: "Applica la bozza di widget-modifica-metadati oppure parte da sola, controlla pagina e sito per i motori di ricerca e di risposta AI e implementa i suggerimenti scelti dall'utente. Usa quando l'utente chiede un audit SEO, GEO o AEO o di applicare una bozza di metadati."
+name: coordinate-metadata-saio
+description: "Applica la bozza di customize-metadata-widget oppure parte da sola, controlla pagina e sito per i motori di ricerca e di risposta AI e implementa i suggerimenti scelti dall'utente. Usa quando l'utente chiede un audit SEO, GEO o AEO o di applicare una bozza di metadati."
 disable-model-invocation: true
 ---
 
@@ -10,7 +10,7 @@ disable-model-invocation: true
 
 La skill ha due ingressi.
 
-1. Con una bozza della skill `widget-modifica-metadati`, parti da «Applica la bozza» e prosegui con «Controlla pagina e sito» per quella pagina e per tutto il sito. Se l'utente ha scritto «solo applica», fermati dopo la prova con il crawler.
+1. Con una bozza della skill `customize-metadata-widget`, parti da «Applica la bozza» e prosegui con «Controlla pagina e sito» per quella pagina e per tutto il sito. Se l'utente ha scritto «solo applica», fermati dopo la prova con il crawler.
 2. Senza bozza, parti da «Controlla pagina e sito» sull'intero sito o sulla pagina indicata.
 
 Lavora per due lettori, i motori di ricerca e i motori di risposta (AI Overviews e AI Mode di Google, ChatGPT, Claude, Perplexity, Copilot). Entrambi premiano pagine con il contenuto nell'HTML servito, un'entità chiara e frasi che si possono citare da sole. Google dichiara che per le sue funzioni IA bastano le buone pratiche SEO, quindi qui GEO e AEO significano SEO pulita più testi citabili.
@@ -42,7 +42,7 @@ Quando tutto è in ordine, il resoconto è la sola riga «Pagina e sito in ordin
 
 ### Controlli
 
-- I crawler di ricerca e di risposta possono leggere il sito; quelli di addestramento sono una scelta del proprietario, da riportare come sono. Per l'elenco dei crawler e per i blocchi in `robots.txt`, nelle intestazioni, in Vercel Firewall e in Cloudflare usa la skill [`ai-crawler-access`](https://www.cryptohelvetia.com/ch-labs/prompt-library/skills/ai-crawler-access).
+- I crawler di ricerca e di risposta possono leggere il sito; quelli di addestramento sono una scelta del proprietario, da riportare come sono. Per l'elenco dei crawler e per i blocchi in `robots.txt`, nelle intestazioni, in Vercel Firewall e in Cloudflare usa la skill [`optimize-crawler-access`](https://www.cryptohelvetia.com/ch-labs/prompt-library/skills/optimize-crawler-access).
 - Il contenuto principale sta nell'HTML servito dal server e si legge con JavaScript disattivato.
 - Ogni variante dell'indirizzo (HTTP, www, barra finale) porta all'host canonico con un redirect permanente, 301 o 308.
 - La sitemap elenca le pagine indicizzabili con un `lastmod` reale ed è dichiarata in `robots.txt`.
