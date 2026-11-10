@@ -4,7 +4,7 @@ description: "Checks a page and its site for search and AI answer engines, then 
 disable-model-invocation: true
 ---
 
-# Ottimizza il sito per la ricerca e le risposte AI
+# Coordinate metadata SAIO
 
 ## Ambito
 
