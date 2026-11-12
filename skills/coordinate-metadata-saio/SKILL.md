@@ -73,7 +73,13 @@ Le foto si controllano pagina per pagina.
 - La sitemap elenca le foto della persona sotto la pagina che le mostra, con `image:image` e `image:loc`; in Next.js è il campo `images` di `sitemap.ts`. Le foto servite da un CDN su un altro dominio richiedono anche quel dominio verificato in Search Console. Didascalia, titolo e licenza nella sitemap sono tag deprecati.
 - Googlebot-Image raggiunge le foto, comprese le route di ottimizzazione come `/_next/image` e il dominio del CDN, senza blocchi in `robots.txt`, nel firewall o nelle intestazioni. Le pagine pubbliche hanno `max-image-preview:large`, e né le pagine né le foto portano `noimageindex` o `X-Robots-Tag: noindex`.
 
-Quando la CLI `browse` di Browserbase è installata, esegui il Rich Results Test in una sessione remota, che supera da sola i captcha di Google: `browse open "https://search.google.com/test/rich-results?url=<url codificato>" --remote` precompila il campo, poi premi «Testa URL», attendi fino a due minuti e leggi da `browse get markdown` solo le righe con i tipi rilevati e gli errori. Senza la CLI apri il test nel browser locale o chiedi all'utente di aprirlo. Chiudi la sessione con `browse stop`.
+Prima del Rich Results Test controlla tipi ed errori con il validatore di Schema.org, che rende la pagina e risponde senza browser:
+
+```bash
+curl -sS https://validator.schema.org/validate --data-urlencode "url=<url>" | tail -c +6 | jq -r '"errori \(.totalNumErrors), avvisi \(.totalNumWarnings)", (.tripleGroups[] | "\(.type): \(.numErrors) errori, \(.numWarnings) avvisi"), (.errors[] | "\(.errorType) \(.args | join(" "))")'
+```
+
+Stampa i totali, una riga per tipo rilevato e una per errore. Il validatore controlla il vocabolario di Schema.org, non i requisiti di Google per i risultati avanzati. Il Rich Results Test non funziona da un browser remoto: in una sessione Browserbase, anche dopo «TEST URL», Google risponde «Something went wrong. Log in and try again» (verificato il 12 novembre 2026). Aprilo quindi nel browser locale, o chiedi all'utente di aprire `https://search.google.com/test/rich-results?url=<url codificato>`, premere «TEST URL» e riportare i tipi rilevati e gli errori.
 
 Per i suggerimenti scelti il lavoro è finito quando il Rich Results Test di Google riconosce `ProfilePage` e i metadati delle immagini sulla pagina pubblicata e ogni foto della sitemap risponde 200 a `curl -A "Googlebot-Image/1.0" <url>`.
 
